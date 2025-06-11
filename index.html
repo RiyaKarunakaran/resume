@@ -27,10 +27,18 @@
       background-color: #20c997 !important;
       color: white;
     }
+    @keyframes fadeIn {
+     from { opacity: 0; transform: translateY(20px); }
+     to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in {
+     opacity: 0;
+     animation: fadeIn 1s ease-in-out forwards;
+    }
   </style>
 </head>
 <body>
-  <!-- NavBar -->
+<!-- NavBar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Riya Karunakaran</a>
@@ -47,7 +55,7 @@
       </div>
     </div>
   </nav>
-
+<!--Contact Information-->
   <div class="container resume-section">
     <div class="row">
       <div class="col-md-6">
@@ -56,9 +64,11 @@
         <i class="fas fa-phone"></i> 617-283-8566<br>
         <i class="fas fa-envelope"></i> riya.karunakaran@gmail.com</p>
       </div>
+<!--Welcome Buton-->
       <button class="btn btn-outline-success btn-lg mt-3 rounded-pill shadow" onclick="sayHi()">
         <i class="fas fa-hand-sparkles me-2"></i>Click Me!
       </button>
+<!--Skills-->
       <div class="col-md-6" id="skills">
         <h2>Skills</h2>
         <ul class="list-group">
@@ -70,7 +80,6 @@
         </ul>
       </div>
     </div>
-
     <hr>
  <style>
      .carousel-img {
@@ -90,7 +99,7 @@
       color: white;
     }
   </style>
-
+<!--Image Carousel-->
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
@@ -102,7 +111,6 @@
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7"></button>
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7" aria-label="Slide 8"></button>
     </div>
-
     <div class="carousel-inner">
       <div class="carousel-item active">
         <img src="https://static.wixstatic.com/media/7fb668_5b01c2b0717949debce0a8b945767174~mv2.jpg" class="carousel-img" alt="Sweet SurpriZe">
@@ -172,10 +180,7 @@
     </button>
   </div>
 </div>
-
-
-
-
+<!--Activities Cards-->
     <div id="activities">
       <h2>Activities</h2>
       <div class="row row-cols-1 row-cols-md-2 g-4">
@@ -280,7 +285,7 @@
         </div>
       </div>
     </div>
-
+<!--Education Section-->
     <hr>
     <div id="education">
       <h2>Education</h2>
@@ -288,7 +293,7 @@
       GPA: 4.2<br>
       Courses: AP US History, AP Language, AP Statistics, AP Computer Science</p>
     </div>
-
+<!--Awards Section-->
     <hr>
     <div id="awards">
       <h2>Awards</h2>
@@ -300,8 +305,7 @@
       </ul>
     </div>
   </div>
-
-  <!-- JS Functions -->
+<!-- JS Functions -->
   <script>
     document.querySelectorAll('.card').forEach(card => {
       card.addEventListener('click', () => {
@@ -322,7 +326,13 @@
         alert(`Nice to meet you, ${name}! Thanks for looking at my resume.`);
   }
 }
-
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('#activities .card').forEach((card, i) => {
+        setTimeout(() => {
+          card.classList.add('fade-in');
+        }, i * 200); // stagger the animation by 200ms per card
+      });
+    });
   </script>
 </body>
 </html>
